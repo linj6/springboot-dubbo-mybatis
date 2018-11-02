@@ -4,29 +4,36 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lnjecit</groupId>
-    <artifactId>admin-web</artifactId>
+    <artifactId>goods-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>admin-web</name>
+    <name>goods-core</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
         <groupId>com.lnjecit</groupId>
-        <artifactId>web</artifactId>
+        <artifactId>goods</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>com.lnjecit</groupId>
-            <artifactId>user-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.lnjecit</groupId>
             <artifactId>goods-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

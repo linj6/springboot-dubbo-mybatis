@@ -1,8 +1,8 @@
 package com.lnjecit.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.lnjecit.api.domain.User;
-import com.lnjecit.api.service.UserService;
+import com.lnjecit.api.domain.Goods;
+import com.lnjecit.api.service.GoodsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,17 +13,17 @@ import java.util.Map;
 
 /**
  * @author lnj
- * createTime 2018-11-01 15:42
+ * createTime 2018-11-02 14:50
  **/
-@RequestMapping("/user")
+@RequestMapping("/goods")
 @RestController
-public class UserController {
+public class GoodsController {
 
     @Reference
-    private UserService userService;
+    private GoodsService goodsService;
 
     @GetMapping("/list")
-    public List<User> list(@RequestParam(required = false) Map<String, Object> params) {
-        return userService.query(params);
+    public List<Goods> list(@RequestParam(required = false) Map<String, Object> params) {
+        return goodsService.query(params);
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lnjecit.dao.GoodsDao">
+    <resultMap id="goodsMap" type="com.lnjecit.api.domain.Goods">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="unitPrice" property="unitPrice"/>
+        <result column="number" property="number"/>
+        <result column="createUserId" property="createUserId"/>
+        <result column="createTime" property="createTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, unitPrice, number, createUserId, createTime
+	</sql>
+
+    <select id="query" resultMap="goodsMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM goods
+        <where>
+            del = 1
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%',#{name},'%')
+            </if>
+            <if test="createUserId != null">
+                AND createUserId = #{createUserId}
+            </if>
+            <if test="createTime != null">
+                AND createTime = #{createTime}
+            </if>
+        </where>
+        <choose>
+            <when test="orderBy == null or orderBy == ''">
+                ORDER BY createTime DESC
+            </when>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${ orderBy }
+            </when>
+        </choose>
+    </select>
+</mapper>
