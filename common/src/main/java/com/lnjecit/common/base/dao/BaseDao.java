@@ -1,7 +1,6 @@
-package com.lnjecit.controller.common.base.dao;
+package com.lnjecit.common.base.dao;
 
-import com.lnjecit.controller.common.base.domain.BaseEntity;
-import org.apache.ibatis.annotations.Param;
+import com.lnjecit.common.base.domain.BaseEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -30,7 +29,7 @@ public interface BaseDao<E extends BaseEntity> {
      * @param id
      * @return
      */
-    int deletePhysical(@Param("id") Long id);
+    int deletePhysical(Long id);
 
     /**
      * 物理删除（适用于根据多个参数来删除记录）
@@ -46,7 +45,7 @@ public interface BaseDao<E extends BaseEntity> {
      * @param id
      * @return
      */
-    int deleteLogical(@Param("id") Long id);
+    int deleteLogical(Long id);
 
     /**
      * 逻辑删除（适用于根据多个参数来删除记录）
@@ -62,7 +61,7 @@ public interface BaseDao<E extends BaseEntity> {
      * @param id
      * @return
      */
-    E getById(@Param("id") Long id);
+    E getById(Long id);
 
     /**
      * 根据参数查询返回持久化对象集合

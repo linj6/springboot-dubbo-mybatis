@@ -1,4 +1,4 @@
-package com.lnjecit.controller.common;
+package com.lnjecit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CommonApplicationTests {
+public class GoodsCoreApplicationTests {
 
     @Test
     public void contextLoads() {

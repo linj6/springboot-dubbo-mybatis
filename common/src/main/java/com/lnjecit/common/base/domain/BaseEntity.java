@@ -1,4 +1,4 @@
-package com.lnjecit.controller.common.base.domain;
+package com.lnjecit.common.base.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
