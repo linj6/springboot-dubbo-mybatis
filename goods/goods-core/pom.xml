@@ -15,13 +15,13 @@
         <groupId>com.lnjecit</groupId>
         <artifactId>goods</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>com.lnjecit</groupId>
             <artifactId>goods-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -58,5 +58,15 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--<version>${spring-boot-maven-plugin.version}</version>-->
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
