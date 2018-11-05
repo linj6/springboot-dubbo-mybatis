@@ -14,6 +14,7 @@
         <module>common</module>
         <module>user</module>
         <module>goods</module>
+        <module>order</module>
         <module>web</module>
     </modules>
 </project>

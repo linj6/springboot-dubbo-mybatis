@@ -3,10 +3,11 @@ package com.lnjecit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
-public class AdminWebApplication {
+public class PortalWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminWebApplication.class, args);
+        SpringApplication.run(PortalWebApplication.class, args);
     }
 }

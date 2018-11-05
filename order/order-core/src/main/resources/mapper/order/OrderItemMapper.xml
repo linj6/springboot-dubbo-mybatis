@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lnjecit.dao.OrderItemDao">
+    <resultMap id="orderItemMap" type="com.lnjecit.api.domain.OrderItem">
+        <result column="orderId" property="orderId"/>
+        <result column="orderCode" property="orderCode"/>
+        <result column="goodsId" property="goodsId"/>
+        <result column="goodsName" property="goodsName"/>
+        <result column="goodsNumber" property="goodsNumber"/>
+        <result column="goodsPrice" property="goodsPrice"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,orderId,orderCode,goodsId,goodsName,goodsNumber,goodsPrice
+    </sql>
+
+    <select id="query" resultMap="orderItemMap">
+        select
+        <include refid="Base_Column_List"/>
+        from order_item
+    </select>
+
+    <select id="getById" resultMap="orderItemMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM order_item WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.lnjecit.api.domain.OrderItem" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO order_item(id,orderId,orderCode,goodsId,goodsName,goodsNumber,goodsPrice)
+		VALUES (#{id},#{orderId},#{orderCode},#{goodsId},#{goodsName},#{goodsNumber},#{goodsPrice})
+    </insert>
+
+    <update id="update" parameterType="com.lnjecit.api.domain.OrderItem">
+        UPDATE order_item
+        <set>
+            id=#{id},
+            orderId=#{orderId},
+            orderCode=#{orderCode},
+            goodsId=#{goodsId},
+            goodsName=#{goodsName},
+            goodsNumber=#{goodsNumber},
+            goodsPrice=#{goodsPrice},
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

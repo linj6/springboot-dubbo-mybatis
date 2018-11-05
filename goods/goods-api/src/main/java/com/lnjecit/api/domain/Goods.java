@@ -1,7 +1,6 @@
 package com.lnjecit.api.domain;
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -26,7 +25,6 @@ public class Goods implements Serializable {
 
     private Long createUserId;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lnjecit.dao.OrderDao">
+    <resultMap id="orderMap" type="com.lnjecit.api.domain.Order">
+        <result column="code" property="code"/>
+        <result column="userId" property="userId"/>
+        <result column="orderTime" property="orderTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,code,userId,orderTime
+    </sql>
+
+    <select id="query" resultMap="orderMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+    </select>
+
+    <select id="getById" resultMap="orderMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `order` WHERE id = #{id}
+    </select>
+
+
+    <insert id="insert" parameterType="com.lnjecit.api.domain.Order" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO `order`(id,code,userId,orderTime)
+		VALUES (#{id},#{code},#{userId},#{orderTime})
+    </insert>
+
+    <update id="update" parameterType="com.lnjecit.api.domain.Order">
+        UPDATE `order`
+        <set>
+            id=#{id},
+            code=#{code},
+            userId=#{userId},
+            orderTime=#{orderTime},
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

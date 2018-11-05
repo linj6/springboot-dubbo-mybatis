@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>web</artifactId>
+        <groupId>com.lnjecit</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>goods</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <artifactId>portal-web</artifactId>
 
-    <name>goods</name>
-    <description>Demo project for Spring Boot</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.lnjecit</groupId>
+            <artifactId>order-api</artifactId>
+        </dependency>
 
-    <parent>
-        <groupId>com.lnjecit</groupId>
-        <artifactId>parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../parent/pom.xml</relativePath>
-    </parent>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-    <modules>
-        <module>goods-api</module>
-        <module>goods-core</module>
-    </modules>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.lnjecit</groupId>
-                <artifactId>goods-api</artifactId>
-                <version>${current.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.lnjecit</groupId>
-                <artifactId>goods-core</artifactId>
-                <version>${current.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
+
 
     <build>
         <plugins>
@@ -43,9 +42,8 @@
                 <!-- The plugin rewrites your manifest -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<version>${spring-boot-maven-plugin.version}</version>-->
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.lnjecit.GoodsCoreApplication</mainClass>
+                    <mainClass>com.lnjecit.PortalWebApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>
